@@ -5,26 +5,16 @@
     "license": "GPL-3.0-only",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.0.0/tportable-x64.5.0.0.zip",
-            "hash": "262ea2a73feba4e5cd2aebbf2b9ab719e06312246c953e3be67038b8c252f7c7"
+            "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v6.0.0/tportable-x64.6.0.0.zip",
+            "hash": "e06caf47b76b12677f96166998b67bd2428952b705c1d3979378f22d1576cc97"
         },
         "32bit": {
-            "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.0.0/tportable.5.0.0.zip",
-            "hash": "200002f9f56f4b61a6ec73cf5ffff818bba2e00e8d10ca9e17ce1960d81fcb1f"
+            "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v6.0.0/tportable.6.0.0.zip",
+            "hash": "c26fb7b54ae59b99ca5e597055e8edb12da8dd8aa90253c07b3c12433dad7da6"
         }
     },
     "extract_dir": "Telegram",
     "pre_install": "Set-Content \"$dir\\telegram6.cmd\" '@start \"Telegram\" /D \"%~dp0\" \"%~dp0Telegram.exe\" %*' -Encoding Ascii",
-    "post_install": [
-        "$persist_source = \"$bucketsdir\\..\\persist\\telegram\\tdata\"",
-        "if (Test-Path -Path $persist_source) {",
-        "  Write-Host \"Linking existing tdata folder...\"",
-        "  cmd /c mklink /J \"$dir\\tdata\" $persist_source",
-        "} else {",
-        "  Write-Error \"Persist folder not found at '$persist_source'. The new instance will use a new tdata folder.\"",
-        "  New-Item -Path \"$dir\\tdata\" -ItemType Directory -ErrorAction SilentlyContinue",
-        "}"
-    ],
     "bin": "telegram6.cmd",
     "shortcuts": [
         [
@@ -32,6 +22,7 @@
             "Telegram6"
         ]
     ],
+    "persist": "tdata",
     "checkver": {
         "github": "https://github.com/telegramdesktop/tdesktop"
     },

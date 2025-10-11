@@ -15,16 +15,6 @@
     },
     "extract_dir": "Telegram",
     "pre_install": "Set-Content \"$dir\\telegram5.cmd\" '@start \"Telegram\" /D \"%~dp0\" \"%~dp0Telegram.exe\" %*' -Encoding Ascii",
-    "post_install": [
-        "$persist_source = \"$bucketsdir\\..\\persist\\telegram\\tdata\"",
-        "if (Test-Path -Path $persist_source) {",
-        "  Write-Host \"Linking existing tdata folder...\"",
-        "  cmd /c mklink /J \"$dir\\tdata\" $persist_source",
-        "} else {",
-        "  Write-Error \"Persist folder not found at '$persist_source'. The new instance will use a new tdata folder.\"",
-        "  New-Item -Path \"$dir\\tdata\" -ItemType Directory -ErrorAction SilentlyContinue",
-        "}"
-    ],
     "bin": "telegram5.cmd",
     "shortcuts": [
         [
@@ -32,6 +22,7 @@
             "Telegram5"
         ]
     ],
+    "persist": "tdata",
     "checkver": {
         "github": "https://github.com/telegramdesktop/tdesktop"
     },
