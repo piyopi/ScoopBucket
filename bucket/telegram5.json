@@ -18,7 +18,7 @@
     "bin": "telegram5.cmd",
     "shortcuts": [
         [
-            "Telegram5.exe",
+            "Telegram.exe",
             "Telegram5"
         ]
     ],
