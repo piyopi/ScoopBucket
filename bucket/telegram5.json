@@ -14,7 +14,7 @@
         }
     },
     "extract_dir": "Telegram",
-    "pre_install": "Set-Content \"$dir\\telegram5.cmd\" '@start \"Telegram\" /D \"%~dp0\" \"%~dp0Telegram5.exe\" %*' -Encoding Ascii",
+    "pre_install": "Set-Content \"$dir\\telegram5.cmd\" '@start \"Telegram\" /D \"%~dp0\" \"%~dp0Telegram.exe\" %*' -Encoding Ascii",
     "bin": "telegram5.cmd",
     "shortcuts": [
         [
